@@ -18,8 +18,8 @@ import {
 } from '@nestjs/swagger';
 import { CreateFolderDto, FolderResponse } from './dto/folder.dto';
 
-@Controller('books')
-@ApiTags('Books')
+@Controller('folders')
+@ApiTags('Folders')
 export class FolderController {
   constructor(private readonly folderService: FolderService) {}
 
