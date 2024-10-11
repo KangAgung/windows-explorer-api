@@ -113,7 +113,7 @@ export class FileController {
   async remove(@Param('id') id: string): Promise<{ message: string }> {
     try {
       const file = await this.fileService.remove(+id);
-      if (file == null) {
+      if (file === null) {
         throw new NotFoundException();
       }
 

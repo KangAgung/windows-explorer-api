@@ -61,7 +61,11 @@ export class FolderController {
 
       return {
         message: 'Success create new folder',
-        data: folder,
+        data: {
+          ...folder,
+          files: [],
+          children: [],
+        },
       };
     } catch (error) {
       console.error('Error has been occured:', error);
