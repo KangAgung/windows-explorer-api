@@ -14,9 +14,20 @@ export class FolderService {
     return folders
       .filter((folder) => folder.parentId === parentId)
       .map((item) => {
+        const children = [
+          ...this.transformData(folders, item.id),
+          ...item.files.map((file) => ({
+            id: file.id,
+            name: file.name,
+            parentId: file.folderId,
+            files: null,
+            children: null,
+          })),
+        ];
+
         return {
           ...item,
-          children: this.transformData(folders, item.id),
+          children,
         };
       });
   }

@@ -18,6 +18,10 @@ async function bootstrap() {
     SwaggerModule.setup('/', app, document);
   }
 
+  app.enableCors({
+    origin: '*',
+  });
+
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
